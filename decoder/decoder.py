@@ -7,7 +7,8 @@ from PIL import Image
 
 class DecodingWeaver:
 
-    def decode_message(img_path: str) -> str:
+    @classmethod
+    def decode_message(cls, img_path: str) -> str:
         print("*** DECODING ***")
         img = Image.open(img_path)
         pixels = list(img.getdata())

@@ -9,7 +9,8 @@ from typing import List, Tuple
 
 class EncodingWeaver:
 
-    def encode_message(img_name: str, message: str) -> str:
+    @classmethod
+    def encode_message(cls, img_name: str, message: str) -> str:
         print("*** ENCODING ***")
         img = Image.open(img_name)
         pixels = list(img.getdata())
