@@ -2,15 +2,19 @@ __all__ = (
     "EncodingWeaver",
 )
 
-from core import pixel_and_msgb_compatibility
+from core import pixel_and_msgb_compatibility, ModeEnum
 from PIL import Image
 from typing import List, Tuple
 
 
 class EncodingWeaver:
 
-    @classmethod
-    def encode_message(cls, img_name: str, message: str) -> str:
+    def __init__(
+        self,
+        mode_detector: ModeDetector
+    ) -> None:
+
+    def encode_message(self, img_name: str, message: str, mode: ModeEnum = ModeEnum.RGB) -> str:
         print("*** ENCODING ***")
         img = Image.open(img_name)
         pixels = list(img.getdata())
@@ -39,3 +43,5 @@ class EncodingWeaver:
         custom_file_name = f'custom_{img_name.split(".")[0]}.png'
         custom_img.save(custom_file_name, format='png')
         return custom_file_name
+
+    def _rgb_mode(self, ):
